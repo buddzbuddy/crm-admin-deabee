@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Entity builder";
+}
+<p>Existing entities:</p>
+<ul>
+    @foreach(var tbl in ViewBag.TableList as IEnumerable<string>)
+    {
+        <li>
+            @Html.ActionLink(tbl, "LoadData", new { tableName = tbl })
+        </li>
+    }
+</ul>
+
+@if(ViewBag.Message != null)
+{
+    <p class="alert-info">@ViewBag.Message</p>
+}

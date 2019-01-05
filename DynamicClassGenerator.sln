@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28315.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicClassGenerator", "DynamicClassGenerator\DynamicClassGenerator.csproj", "{5E78C69E-3BFE-4A83-9C65-E2E54EC51D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicServerSide", "DynamicServerSide\DynamicServerSide.csproj", "{A77ECF20-3EC8-49A4-8316-D3730F1C2316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicWebService", "DynamicWebService\DynamicWebService.csproj", "{6EBA6180-A95B-4E0C-AEC3-D31CBA547035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicClient", "DynamicClient\DynamicClient.csproj", "{8CE7E8EF-4700-4BB0-A691-C2269E58313D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C648C95-3029-431A-8EC2-77041E518D8A}"
+	ProjectSection(SolutionItems) = preProject
+		dbtablescript.sql = dbtablescript.sql
+		sometabledata.sql = sometabledata.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicDbModelBuilder", "..\MagicDbModelBuilder-master\MagicDbModelBuilder\MagicDbModelBuilder.csproj", "{BBD1EB27-12CB-42C5-83A6-7C03D10DEAAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{CA7A2B0C-13F6-41F2-9CB1-94585CF503EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E78C69E-3BFE-4A83-9C65-E2E54EC51D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E78C69E-3BFE-4A83-9C65-E2E54EC51D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E78C69E-3BFE-4A83-9C65-E2E54EC51D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E78C69E-3BFE-4A83-9C65-E2E54EC51D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A77ECF20-3EC8-49A4-8316-D3730F1C2316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A77ECF20-3EC8-49A4-8316-D3730F1C2316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A77ECF20-3EC8-49A4-8316-D3730F1C2316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A77ECF20-3EC8-49A4-8316-D3730F1C2316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EBA6180-A95B-4E0C-AEC3-D31CBA547035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBA6180-A95B-4E0C-AEC3-D31CBA547035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBA6180-A95B-4E0C-AEC3-D31CBA547035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBA6180-A95B-4E0C-AEC3-D31CBA547035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CE7E8EF-4700-4BB0-A691-C2269E58313D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE7E8EF-4700-4BB0-A691-C2269E58313D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE7E8EF-4700-4BB0-A691-C2269E58313D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE7E8EF-4700-4BB0-A691-C2269E58313D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD1EB27-12CB-42C5-83A6-7C03D10DEAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD1EB27-12CB-42C5-83A6-7C03D10DEAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD1EB27-12CB-42C5-83A6-7C03D10DEAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD1EB27-12CB-42C5-83A6-7C03D10DEAAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7A2B0C-13F6-41F2-9CB1-94585CF503EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7A2B0C-13F6-41F2-9CB1-94585CF503EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7A2B0C-13F6-41F2-9CB1-94585CF503EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7A2B0C-13F6-41F2-9CB1-94585CF503EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A927BA11-6B8A-4908-8D53-582E8A2007A1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DynamicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DynamicAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DynamicTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DynamicTemplateAttributes">
+          <Key>
+            <PropertyRef Name="TemplateId" />
+            <PropertyRef Name="AttributeId" />
+          </Key>
+          <Property Name="TemplateId" Type="int" Nullable="false" />
+          <Property Name="AttributeId" Type="int" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Idx" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DynamicType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SqlTypeEnumCode" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DynamicTemplateAttributes_DynamicAttribute">
+          <End Role="DynamicAttribute" Type="Self.DynamicAttribute" Multiplicity="1" />
+          <End Role="DynamicTemplateAttributes" Type="Self.DynamicTemplateAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DynamicAttribute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DynamicTemplateAttributes">
+              <PropertyRef Name="AttributeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DynamicTemplateAttributes_DynamicTemplate">
+          <End Role="DynamicTemplate" Type="Self.DynamicTemplate" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DynamicTemplateAttributes" Type="Self.DynamicTemplateAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DynamicTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DynamicTemplateAttributes">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DynamicTemplateAttributes_DynamicType">
+          <End Role="DynamicType" Type="Self.DynamicType" Multiplicity="1" />
+          <End Role="DynamicTemplateAttributes" Type="Self.DynamicTemplateAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DynamicType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DynamicTemplateAttributes">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DynamicModelStoreContainer">
+          <EntitySet Name="DynamicAttribute" EntityType="Self.DynamicAttribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DynamicTemplate" EntityType="Self.DynamicTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DynamicTemplateAttributes" EntityType="Self.DynamicTemplateAttributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DynamicType" EntityType="Self.DynamicType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DynamicTemplateAttributes_DynamicAttribute" Association="Self.FK_DynamicTemplateAttributes_DynamicAttribute">
+            <End Role="DynamicAttribute" EntitySet="DynamicAttribute" />
+            <End Role="DynamicTemplateAttributes" EntitySet="DynamicTemplateAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DynamicTemplateAttributes_DynamicTemplate" Association="Self.FK_DynamicTemplateAttributes_DynamicTemplate">
+            <End Role="DynamicTemplate" EntitySet="DynamicTemplate" />
+            <End Role="DynamicTemplateAttributes" EntitySet="DynamicTemplateAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DynamicTemplateAttributes_DynamicType" Association="Self.FK_DynamicTemplateAttributes_DynamicType">
+            <End Role="DynamicType" EntitySet="DynamicType" />
+            <End Role="DynamicTemplateAttributes" EntitySet="DynamicTemplateAttributes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DynamicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DynamicAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DynamicTemplateAttributes" Relationship="Self.FK_DynamicTemplateAttributes_DynamicAttribute" FromRole="DynamicAttribute" ToRole="DynamicTemplateAttributes" />
+        </EntityType>
+        <EntityType Name="DynamicTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DynamicTemplateAttributes" Relationship="Self.FK_DynamicTemplateAttributes_DynamicTemplate" FromRole="DynamicTemplate" ToRole="DynamicTemplateAttributes" />
+        </EntityType>
+        <EntityType Name="DynamicTemplateAttribute">
+          <Key>
+            <PropertyRef Name="TemplateId" />
+            <PropertyRef Name="AttributeId" />
+          </Key>
+          <Property Name="TemplateId" Type="Int32" Nullable="false" />
+          <Property Name="AttributeId" Type="Int32" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Idx" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DynamicAttribute" Relationship="Self.FK_DynamicTemplateAttributes_DynamicAttribute" FromRole="DynamicTemplateAttributes" ToRole="DynamicAttribute" />
+          <NavigationProperty Name="DynamicTemplate" Relationship="Self.FK_DynamicTemplateAttributes_DynamicTemplate" FromRole="DynamicTemplateAttributes" ToRole="DynamicTemplate" />
+          <NavigationProperty Name="DynamicType" Relationship="Self.FK_DynamicTemplateAttributes_DynamicType" FromRole="DynamicTemplateAttributes" ToRole="DynamicType" />
+        </EntityType>
+        <EntityType Name="DynamicType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SqlTypeEnumCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DynamicTemplateAttributes" Relationship="Self.FK_DynamicTemplateAttributes_DynamicType" FromRole="DynamicType" ToRole="DynamicTemplateAttributes" />
+        </EntityType>
+        <Association Name="FK_DynamicTemplateAttributes_DynamicAttribute">
+          <End Role="DynamicAttribute" Type="Self.DynamicAttribute" Multiplicity="1" />
+          <End Role="DynamicTemplateAttributes" Type="Self.DynamicTemplateAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DynamicAttribute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DynamicTemplateAttributes">
+              <PropertyRef Name="AttributeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DynamicTemplateAttributes_DynamicTemplate">
+          <End Role="DynamicTemplate" Type="Self.DynamicTemplate" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DynamicTemplateAttributes" Type="Self.DynamicTemplateAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DynamicTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DynamicTemplateAttributes">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DynamicTemplateAttributes_DynamicType">
+          <End Role="DynamicType" Type="Self.DynamicType" Multiplicity="1" />
+          <End Role="DynamicTemplateAttributes" Type="Self.DynamicTemplateAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DynamicType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DynamicTemplateAttributes">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DynamicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DynamicAttributes" EntityType="Self.DynamicAttribute" />
+          <EntitySet Name="DynamicTemplates" EntityType="Self.DynamicTemplate" />
+          <EntitySet Name="DynamicTemplateAttributes" EntityType="Self.DynamicTemplateAttribute" />
+          <EntitySet Name="DynamicTypes" EntityType="Self.DynamicType" />
+          <AssociationSet Name="FK_DynamicTemplateAttributes_DynamicAttribute" Association="Self.FK_DynamicTemplateAttributes_DynamicAttribute">
+            <End Role="DynamicAttribute" EntitySet="DynamicAttributes" />
+            <End Role="DynamicTemplateAttributes" EntitySet="DynamicTemplateAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DynamicTemplateAttributes_DynamicTemplate" Association="Self.FK_DynamicTemplateAttributes_DynamicTemplate">
+            <End Role="DynamicTemplate" EntitySet="DynamicTemplates" />
+            <End Role="DynamicTemplateAttributes" EntitySet="DynamicTemplateAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DynamicTemplateAttributes_DynamicType" Association="Self.FK_DynamicTemplateAttributes_DynamicType">
+            <End Role="DynamicType" EntitySet="DynamicTypes" />
+            <End Role="DynamicTemplateAttributes" EntitySet="DynamicTemplateAttributes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DynamicModelStoreContainer" CdmEntityContainer="DynamicEntities">
+          <EntitySetMapping Name="DynamicAttributes">
+            <EntityTypeMapping TypeName="DynamicModel.DynamicAttribute">
+              <MappingFragment StoreEntitySet="DynamicAttribute">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DynamicTemplates">
+            <EntityTypeMapping TypeName="DynamicModel.DynamicTemplate">
+              <MappingFragment StoreEntitySet="DynamicTemplate">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DynamicTemplateAttributes">
+            <EntityTypeMapping TypeName="DynamicModel.DynamicTemplateAttribute">
+              <MappingFragment StoreEntitySet="DynamicTemplateAttributes">
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Idx" ColumnName="Idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DynamicTypes">
+            <EntityTypeMapping TypeName="DynamicModel.DynamicType">
+              <MappingFragment StoreEntitySet="DynamicType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SqlTypeEnumCode" ColumnName="SqlTypeEnumCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

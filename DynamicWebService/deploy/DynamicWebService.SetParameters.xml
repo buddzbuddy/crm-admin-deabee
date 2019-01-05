@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/DynamicWebService" />
+  <setParameter name="DynamicEntities-Web.config Connection String" value="metadata=res://*/Model.csdl|res://*/Model.ssdl|res://*/Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=localhost;initial catalog=Dynamic;persist security info=True;user id=sa;password=QQQwww123;multipleactiveresultsets=True;App=EntityFramework&quot;" />
+  <setParameter name="DynamicDbContext-Web.config Connection String" value="Data Source=localhost;Initial Catalog=Dynamic;Password=QQQwww123;Persist Security Info=True;User ID=sa;MultipleActiveResultSets=True;" />
+</parameters>
