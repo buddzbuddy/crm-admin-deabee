@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Список таблиц";
+}
+<p>Список таблиц:</p>
+
+@*@Html.ActionLink("Create new template", "CreateTemplate")*@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td></td>
+            <td>
+                Таблица
+            </td>
+            <td>
+                Статус
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tmpl in ViewBag.Templates as IEnumerable<Web.OData.Models.Meta.DynamicTemplate>)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("просмотр описания", "ViewTemplate", new { id = tmpl.Id })
+                </td>
+                <td>
+                    @tmpl.Name
+                </td>
+                <td>
+                    @if (tmpl.IsExist == 1)
+                    {
+                        <p>Доступен</p>
+                    }
+                    else if (tmpl.IsExist == 0)
+                    {
+                        <p>Not created</p>
+                    }
+                    else
+                    {
+                        <p>Unknown</p>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

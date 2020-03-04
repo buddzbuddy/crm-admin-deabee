@@ -1,0 +1,76 @@
+﻿@model Web.Models.DynamicTemplateViewModel
+@{
+    ViewBag.Title = "Просмотр таблицы";
+}
+
+<h2>Просмотр таблицы</h2>
+<dl>
+    <dt>Название таблицы</dt>
+    <dd>@Model.Template.Name</dd>
+    <dt>Описание</dt>
+    <dd>@Model.Template.Description</dd>
+
+    <dt>Статус таблицы</dt>
+    <dd>
+        @if (Model.Template.IsExist == 1)
+        {
+            <p>Доступен</p>
+        }
+        else if (Model.Template.IsExist == 0)
+        {
+            <p>Не создан</p>
+        }
+        else
+        {
+            <p>Unknown</p>
+        }
+    </dd>
+</dl>
+<p>
+    @*@Html.ActionLink("Добавить новое поле", "AddTemplateAttribute", new { templateId = Model.Template.Id })*@
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Название поля в интерфейсе</th>
+            <th>Название поля в таблице</th>
+            <th>Тип поля в таблице</th>
+            <th>Тип отображаемого элемента</th>
+            <th>Тип поля ввода (только для &lsaquo;input /&rsaquo;)</th>
+            <th>Is nullable?</th>
+            <th>Значение по умолчанию или айди таблицы для selectbox</th>
+            <th>Порядковый индекс</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var col in Model.DynamicFieldViewModels.OrderBy(x => x.ColumnDescription.OrderIndex))
+        {
+            <tr>
+                <td>
+                    @col.ColumnDescription.Label
+                </td>
+                <td>
+                    @col.ColumnDescription.Name
+                </td>
+                <td>
+                    @col.ColumnDescription.Type
+                </td>
+                <td>
+                    @col.ColumnDescription.EType
+                </td>
+                <td>
+                    @col.ColumnDescription.IType
+                </td>
+                <td>
+                    @Html.CheckBox("col" + Model.DynamicFieldViewModels.IndexOf(col), col.ColumnDescription.IsNull, new { disabled = true })
+                </td>
+                <td>
+                    @col.ColumnDescription.DefaultValue
+                </td>
+                <td>
+                    @col.ColumnDescription.OrderIndex
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,99 @@
+﻿@model Web.OData.Models.Meta.MenuItem
+@{
+    ViewBag.Title = "Menu item";
+}
+
+<h2>Menu item details</h2>
+
+<fieldset>
+    <legend>@Model.DisplayName</legend>
+    <dl>
+        <dt>
+            Route
+        </dt>
+        <dd>
+            @Model.Route
+        </dd>
+        <dt>
+            IconName
+        </dt>
+        <dd>
+            @Model.IconName
+        </dd>
+        <dt>
+            OrderIndex
+        </dt>
+        <dd>
+            @Model.OrderIndex
+        </dd>
+        <dt>
+            ParentMenuItemId
+        </dt>
+        <dd>
+            @Model.ParentMenuItemId
+        </dd>
+    </dl>
+    @*@Html.ActionLink("Create new item", "CreateItem", new { parentMenuItemId = Model.Id })*@
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="100%">
+                    Sub menu items
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>
+                    DisplayName
+                </th>
+                <th>
+                    Route
+                </th>
+                <th>
+                    IconName
+                </th>
+                <th>
+                    OrderIndex
+                </th>
+                <th>
+                    ParentMenuItemId
+                </th>
+                <th>
+                    MenuItems
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MenuItems)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("view", "ViewItem", new { id = item.Id })
+                        |
+                        @Html.ActionLink("edit", "EditItem", new { id = item.Id })
+                        |
+                        @Html.ActionLink("delete", "DeleteItem", new { id = item.Id }, new { onclick = "return confirm('Are you sure to delete this entry?');" })
+                    </td>
+                    <td>
+                        @item.DisplayName
+                    </td>
+                    <td>
+                        @item.Route
+                    </td>
+                    <td>
+                        @item.IconName
+                    </td>
+                    <td>
+                        @item.OrderIndex
+                    </td>
+                    <td>
+                        @item.ParentMenuItemId
+                    </td>
+                    <td>
+                        @item.MenuItems.Count
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</fieldset>

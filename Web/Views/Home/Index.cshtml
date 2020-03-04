@@ -1,17 +1,12 @@
-﻿@{
-    ViewBag.Title = "Entity builder";
+﻿
+@{
+    ViewBag.Title = "Главная";
 }
-<p>Existing entities:</p>
-<ul>
-    @foreach(var tbl in ViewBag.TableList as IEnumerable<string>)
-    {
-        <li>
-            @Html.ActionLink(tbl, "LoadData", new { tableName = tbl })
-        </li>
-    }
-</ul>
+<h1>Администратор БД</h1>
+<p>
+    @Html.ActionLink("Таблицы", "Index", "Resources", null, htmlAttributes: new { @class = "btn btn-primary" })
+</p>
 
-@if(ViewBag.Message != null)
-{
-    <p class="alert-info">@ViewBag.Message</p>
-}
+<p>
+    @Html.ActionLink("Меню", "Index", "Menu", null, htmlAttributes: new { @class = "btn btn-primary" })
+</p>

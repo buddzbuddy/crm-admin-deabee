@@ -80,11 +80,8 @@ namespace DynamicClient
                 return;
             }
             var res = odata.Execute<string>(new Uri(System.Configuration.ConfigurationManager.AppSettings["url_data"]
-                + "/CreateTableSmo?template='" + EntityName.Text
-                + "'&operation='" + "create"
-                + "'&tableName='" + EntityName.Text
-                + "'&f='" + ((IsTest.IsChecked ?? false) ? "T" : "Y")
-                + "'&columns='" + columns + "'"), "POST", true);
+                + "/CreateTemplate?templateName='" + EntityName.Text
+                + "'&columnsStr='" + columns + "'"), "POST", true);
             var s = (res?.FirstOrDefault() ?? "");
             EntityName.Text = "";
             ViewModel.TableColumns.Clear();
@@ -99,10 +96,7 @@ namespace DynamicClient
             if (TableList.SelectedValue != null)
             {
                 var res = odata.Execute<string>(new Uri(System.Configuration.ConfigurationManager.AppSettings["url_data"]
-                    + "/CreateTableSmo?template='" + TableList.SelectedValue.ToString()
-                    + "'&operation='" + "drop"
-                    + "'&tableName='" + TableList.SelectedValue.ToString()
-                    + "'&f='" + ((IsTest.IsChecked ?? false) ? "T'" : "Y'")), "POST", true);
+                    + "/DeleteTemplate?templateId=" + 40), "POST", true);
                 var s = (res?.FirstOrDefault() ?? "");
                 InitServices();
                 MessageBox.Show(s);

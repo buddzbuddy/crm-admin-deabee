@@ -7,44 +7,46 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+//1) Open PowerShell
+//2) Go to 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319'
+//3) Execute '.\DataSvcUtil.exe /out:D:\\dynamicmetadataservice.cs /uri:http://localhost/DynamicWebService/DynamicMetadataService.svc'
 // Original file name: dynamicmetadataservice.cs
-// Generation date: 1/5/2019 4:15:24 AM
+// Generation date: 6/14/2019 12:59:38 AM
 namespace Web
 {
     
     /// <summary>
-    /// There are no comments for DynamicEntities in the schema.
+    /// There are no comments for DynamicMetadataContext in the schema.
     /// </summary>
-    public partial class DynamicEntities : global::System.Data.Services.Client.DataServiceContext
+    public partial class DynamicMetadataContext : global::System.Data.Services.Client.DataServiceContext
     {
         /// <summary>
-        /// Initialize a new DynamicEntities object.
+        /// Initialize a new DynamicMetadataContext object.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public DynamicEntities(global::System.Uri serviceRoot) : 
+        public DynamicMetadataContext(global::System.Uri serviceRoot) : 
                 base(serviceRoot)
         {
             this.OnContextCreated();
         }
         partial void OnContextCreated();
         /// <summary>
-        /// There are no comments for DynamicAttributes in the schema.
+        /// There are no comments for DynamicFields in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceQuery<DynamicAttribute> DynamicAttributes
+        public global::System.Data.Services.Client.DataServiceQuery<DynamicField> DynamicFields
         {
             get
             {
-                if ((this._DynamicAttributes == null))
+                if ((this._DynamicFields == null))
                 {
-                    this._DynamicAttributes = base.CreateQuery<DynamicAttribute>("DynamicAttributes");
+                    this._DynamicFields = base.CreateQuery<DynamicField>("DynamicFields");
                 }
-                return this._DynamicAttributes;
+                return this._DynamicFields;
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceQuery<DynamicAttribute> _DynamicAttributes;
+        private global::System.Data.Services.Client.DataServiceQuery<DynamicField> _DynamicFields;
         /// <summary>
         /// There are no comments for DynamicTemplates in the schema.
         /// </summary>
@@ -63,46 +65,29 @@ namespace Web
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private global::System.Data.Services.Client.DataServiceQuery<DynamicTemplate> _DynamicTemplates;
         /// <summary>
-        /// There are no comments for DynamicTemplateAttributes in the schema.
+        /// There are no comments for MenuItems in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceQuery<DynamicTemplateAttribute> DynamicTemplateAttributes
+        public global::System.Data.Services.Client.DataServiceQuery<MenuItem> MenuItems
         {
             get
             {
-                if ((this._DynamicTemplateAttributes == null))
+                if ((this._MenuItems == null))
                 {
-                    this._DynamicTemplateAttributes = base.CreateQuery<DynamicTemplateAttribute>("DynamicTemplateAttributes");
+                    this._MenuItems = base.CreateQuery<MenuItem>("MenuItems");
                 }
-                return this._DynamicTemplateAttributes;
+                return this._MenuItems;
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceQuery<DynamicTemplateAttribute> _DynamicTemplateAttributes;
+        private global::System.Data.Services.Client.DataServiceQuery<MenuItem> _MenuItems;
         /// <summary>
-        /// There are no comments for DynamicTypes in the schema.
+        /// There are no comments for DynamicFields in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceQuery<DynamicType> DynamicTypes
+        public void AddToDynamicFields(DynamicField dynamicField)
         {
-            get
-            {
-                if ((this._DynamicTypes == null))
-                {
-                    this._DynamicTypes = base.CreateQuery<DynamicType>("DynamicTypes");
-                }
-                return this._DynamicTypes;
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceQuery<DynamicType> _DynamicTypes;
-        /// <summary>
-        /// There are no comments for DynamicAttributes in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public void AddToDynamicAttributes(DynamicAttribute dynamicAttribute)
-        {
-            base.AddObject("DynamicAttributes", dynamicAttribute);
+            base.AddObject("DynamicFields", dynamicField);
         }
         /// <summary>
         /// There are no comments for DynamicTemplates in the schema.
@@ -113,43 +98,35 @@ namespace Web
             base.AddObject("DynamicTemplates", dynamicTemplate);
         }
         /// <summary>
-        /// There are no comments for DynamicTemplateAttributes in the schema.
+        /// There are no comments for MenuItems in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public void AddToDynamicTemplateAttributes(DynamicTemplateAttribute dynamicTemplateAttribute)
+        public void AddToMenuItems(MenuItem menuItem)
         {
-            base.AddObject("DynamicTemplateAttributes", dynamicTemplateAttribute);
-        }
-        /// <summary>
-        /// There are no comments for DynamicTypes in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public void AddToDynamicTypes(DynamicType dynamicType)
-        {
-            base.AddObject("DynamicTypes", dynamicType);
+            base.AddObject("MenuItems", menuItem);
         }
     }
     /// <summary>
-    /// There are no comments for DynamicModel.DynamicAttribute in the schema.
+    /// There are no comments for DynamicServerSide.Models.Metadata.DynamicField in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
     /// </KeyProperties>
     [global::System.Data.Services.Common.DataServiceKeyAttribute("Id")]
-    public partial class DynamicAttribute
+    public partial class DynamicField
     {
         /// <summary>
-        /// Create a new DynamicAttribute object.
+        /// Create a new DynamicField object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="name">Initial value of Name.</param>
+        /// <param name="isNullable">Initial value of IsNullable.</param>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static DynamicAttribute CreateDynamicAttribute(int ID, string name)
+        public static DynamicField CreateDynamicField(int ID, bool isNullable)
         {
-            DynamicAttribute dynamicAttribute = new DynamicAttribute();
-            dynamicAttribute.Id = ID;
-            dynamicAttribute.Name = name;
-            return dynamicAttribute;
+            DynamicField dynamicField = new DynamicField();
+            dynamicField.Id = ID;
+            dynamicField.IsNullable = isNullable;
+            return dynamicField;
         }
         /// <summary>
         /// There are no comments for Property Id in the schema.
@@ -173,6 +150,27 @@ namespace Web
         partial void OnIdChanging(int value);
         partial void OnIdChanged();
         /// <summary>
+        /// There are no comments for Property Label in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string Label
+        {
+            get
+            {
+                return this._Label;
+            }
+            set
+            {
+                this.OnLabelChanging(value);
+                this._Label = value;
+                this.OnLabelChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _Label;
+        partial void OnLabelChanging(string value);
+        partial void OnLabelChanged();
+        /// <summary>
         /// There are no comments for Property Name in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -194,28 +192,172 @@ namespace Web
         partial void OnNameChanging(string value);
         partial void OnNameChanged();
         /// <summary>
-        /// There are no comments for DynamicTemplateAttributes in the schema.
+        /// There are no comments for Property ElementType in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute> DynamicTemplateAttributes
+        public string ElementType
         {
             get
             {
-                return this._DynamicTemplateAttributes;
+                return this._ElementType;
             }
             set
             {
-                if ((value != null))
-                {
-                    this._DynamicTemplateAttributes = value;
-                }
+                this.OnElementTypeChanging(value);
+                this._ElementType = value;
+                this.OnElementTypeChanged();
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute> _DynamicTemplateAttributes = new global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute>();
+        private string _ElementType;
+        partial void OnElementTypeChanging(string value);
+        partial void OnElementTypeChanged();
+        /// <summary>
+        /// There are no comments for Property InputType in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string InputType
+        {
+            get
+            {
+                return this._InputType;
+            }
+            set
+            {
+                this.OnInputTypeChanging(value);
+                this._InputType = value;
+                this.OnInputTypeChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _InputType;
+        partial void OnInputTypeChanging(string value);
+        partial void OnInputTypeChanged();
+        /// <summary>
+        /// There are no comments for Property SqlTypeEnumCode in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<int> SqlTypeEnumCode
+        {
+            get
+            {
+                return this._SqlTypeEnumCode;
+            }
+            set
+            {
+                this.OnSqlTypeEnumCodeChanging(value);
+                this._SqlTypeEnumCode = value;
+                this.OnSqlTypeEnumCodeChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<int> _SqlTypeEnumCode;
+        partial void OnSqlTypeEnumCodeChanging(global::System.Nullable<int> value);
+        partial void OnSqlTypeEnumCodeChanged();
+        /// <summary>
+        /// There are no comments for Property IsNullable in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public bool IsNullable
+        {
+            get
+            {
+                return this._IsNullable;
+            }
+            set
+            {
+                this.OnIsNullableChanging(value);
+                this._IsNullable = value;
+                this.OnIsNullableChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private bool _IsNullable;
+        partial void OnIsNullableChanging(bool value);
+        partial void OnIsNullableChanged();
+        /// <summary>
+        /// There are no comments for Property DefaultValue in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string DefaultValue
+        {
+            get
+            {
+                return this._DefaultValue;
+            }
+            set
+            {
+                this.OnDefaultValueChanging(value);
+                this._DefaultValue = value;
+                this.OnDefaultValueChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _DefaultValue;
+        partial void OnDefaultValueChanging(string value);
+        partial void OnDefaultValueChanged();
+        /// <summary>
+        /// There are no comments for Property OrderIndex in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<int> OrderIndex
+        {
+            get
+            {
+                return this._OrderIndex;
+            }
+            set
+            {
+                this.OnOrderIndexChanging(value);
+                this._OrderIndex = value;
+                this.OnOrderIndexChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<int> _OrderIndex;
+        partial void OnOrderIndexChanging(global::System.Nullable<int> value);
+        partial void OnOrderIndexChanged();
+        /// <summary>
+        /// There are no comments for Property TemplateId in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<int> TemplateId
+        {
+            get
+            {
+                return this._TemplateId;
+            }
+            set
+            {
+                this.OnTemplateIdChanging(value);
+                this._TemplateId = value;
+                this.OnTemplateIdChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<int> _TemplateId;
+        partial void OnTemplateIdChanging(global::System.Nullable<int> value);
+        partial void OnTemplateIdChanged();
+        /// <summary>
+        /// There are no comments for Template in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public DynamicTemplate Template
+        {
+            get
+            {
+                return this._Template;
+            }
+            set
+            {
+                this._Template = value;
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private DynamicTemplate _Template;
     }
     /// <summary>
-    /// There are no comments for DynamicModel.DynamicTemplate in the schema.
+    /// There are no comments for DynamicServerSide.Models.Metadata.DynamicTemplate in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -227,15 +369,13 @@ namespace Web
         /// Create a new DynamicTemplate object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="name">Initial value of Name.</param>
-        /// <param name="description">Initial value of Description.</param>
+        /// <param name="isExist">Initial value of IsExist.</param>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static DynamicTemplate CreateDynamicTemplate(int ID, string name, string description)
+        public static DynamicTemplate CreateDynamicTemplate(int ID, int isExist)
         {
             DynamicTemplate dynamicTemplate = new DynamicTemplate();
             dynamicTemplate.Id = ID;
-            dynamicTemplate.Name = name;
-            dynamicTemplate.Description = description;
+            dynamicTemplate.IsExist = isExist;
             return dynamicTemplate;
         }
         /// <summary>
@@ -302,235 +442,66 @@ namespace Web
         partial void OnDescriptionChanging(string value);
         partial void OnDescriptionChanged();
         /// <summary>
-        /// There are no comments for DynamicTemplateAttributes in the schema.
+        /// There are no comments for Property IsExist in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute> DynamicTemplateAttributes
+        public int IsExist
         {
             get
             {
-                return this._DynamicTemplateAttributes;
+                return this._IsExist;
+            }
+            set
+            {
+                this.OnIsExistChanging(value);
+                this._IsExist = value;
+                this.OnIsExistChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private int _IsExist;
+        partial void OnIsExistChanging(int value);
+        partial void OnIsExistChanged();
+        /// <summary>
+        /// There are no comments for DynamicFields in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Collections.ObjectModel.Collection<DynamicField> DynamicFields
+        {
+            get
+            {
+                return this._DynamicFields;
             }
             set
             {
                 if ((value != null))
                 {
-                    this._DynamicTemplateAttributes = value;
+                    this._DynamicFields = value;
                 }
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute> _DynamicTemplateAttributes = new global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute>();
+        private global::System.Collections.ObjectModel.Collection<DynamicField> _DynamicFields = new global::System.Collections.ObjectModel.Collection<DynamicField>();
     }
     /// <summary>
-    /// There are no comments for DynamicModel.DynamicTemplateAttribute in the schema.
-    /// </summary>
-    /// <KeyProperties>
-    /// AttributeId
-    /// TemplateId
-    /// </KeyProperties>
-    [global::System.Data.Services.Common.DataServiceKeyAttribute("AttributeId", "TemplateId")]
-    public partial class DynamicTemplateAttribute
-    {
-        /// <summary>
-        /// Create a new DynamicTemplateAttribute object.
-        /// </summary>
-        /// <param name="templateId">Initial value of TemplateId.</param>
-        /// <param name="attributeId">Initial value of AttributeId.</param>
-        /// <param name="displayName">Initial value of DisplayName.</param>
-        /// <param name="typeId">Initial value of TypeId.</param>
-        /// <param name="idx">Initial value of Idx.</param>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static DynamicTemplateAttribute CreateDynamicTemplateAttribute(int templateId, int attributeId, string displayName, int typeId, int idx)
-        {
-            DynamicTemplateAttribute dynamicTemplateAttribute = new DynamicTemplateAttribute();
-            dynamicTemplateAttribute.TemplateId = templateId;
-            dynamicTemplateAttribute.AttributeId = attributeId;
-            dynamicTemplateAttribute.DisplayName = displayName;
-            dynamicTemplateAttribute.TypeId = typeId;
-            dynamicTemplateAttribute.Idx = idx;
-            return dynamicTemplateAttribute;
-        }
-        /// <summary>
-        /// There are no comments for Property TemplateId in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public int TemplateId
-        {
-            get
-            {
-                return this._TemplateId;
-            }
-            set
-            {
-                this.OnTemplateIdChanging(value);
-                this._TemplateId = value;
-                this.OnTemplateIdChanged();
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private int _TemplateId;
-        partial void OnTemplateIdChanging(int value);
-        partial void OnTemplateIdChanged();
-        /// <summary>
-        /// There are no comments for Property AttributeId in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public int AttributeId
-        {
-            get
-            {
-                return this._AttributeId;
-            }
-            set
-            {
-                this.OnAttributeIdChanging(value);
-                this._AttributeId = value;
-                this.OnAttributeIdChanged();
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private int _AttributeId;
-        partial void OnAttributeIdChanging(int value);
-        partial void OnAttributeIdChanged();
-        /// <summary>
-        /// There are no comments for Property DisplayName in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public string DisplayName
-        {
-            get
-            {
-                return this._DisplayName;
-            }
-            set
-            {
-                this.OnDisplayNameChanging(value);
-                this._DisplayName = value;
-                this.OnDisplayNameChanged();
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private string _DisplayName;
-        partial void OnDisplayNameChanging(string value);
-        partial void OnDisplayNameChanged();
-        /// <summary>
-        /// There are no comments for Property TypeId in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public int TypeId
-        {
-            get
-            {
-                return this._TypeId;
-            }
-            set
-            {
-                this.OnTypeIdChanging(value);
-                this._TypeId = value;
-                this.OnTypeIdChanged();
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private int _TypeId;
-        partial void OnTypeIdChanging(int value);
-        partial void OnTypeIdChanged();
-        /// <summary>
-        /// There are no comments for Property Idx in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public int Idx
-        {
-            get
-            {
-                return this._Idx;
-            }
-            set
-            {
-                this.OnIdxChanging(value);
-                this._Idx = value;
-                this.OnIdxChanged();
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private int _Idx;
-        partial void OnIdxChanging(int value);
-        partial void OnIdxChanged();
-        /// <summary>
-        /// There are no comments for DynamicAttribute in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public DynamicAttribute DynamicAttribute
-        {
-            get
-            {
-                return this._DynamicAttribute;
-            }
-            set
-            {
-                this._DynamicAttribute = value;
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private DynamicAttribute _DynamicAttribute;
-        /// <summary>
-        /// There are no comments for DynamicTemplate in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public DynamicTemplate DynamicTemplate
-        {
-            get
-            {
-                return this._DynamicTemplate;
-            }
-            set
-            {
-                this._DynamicTemplate = value;
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private DynamicTemplate _DynamicTemplate;
-        /// <summary>
-        /// There are no comments for DynamicType in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public DynamicType DynamicType
-        {
-            get
-            {
-                return this._DynamicType;
-            }
-            set
-            {
-                this._DynamicType = value;
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private DynamicType _DynamicType;
-    }
-    /// <summary>
-    /// There are no comments for DynamicModel.DynamicType in the schema.
+    /// There are no comments for DynamicServerSide.Models.Metadata.MenuItem in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
     /// </KeyProperties>
     [global::System.Data.Services.Common.DataServiceKeyAttribute("Id")]
-    public partial class DynamicType
+    public partial class MenuItem
     {
         /// <summary>
-        /// Create a new DynamicType object.
+        /// Create a new MenuItem object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="name">Initial value of Name.</param>
-        /// <param name="sqlTypeEnumCode">Initial value of SqlTypeEnumCode.</param>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static DynamicType CreateDynamicType(int ID, string name, int sqlTypeEnumCode)
+        public static MenuItem CreateMenuItem(int ID)
         {
-            DynamicType dynamicType = new DynamicType();
-            dynamicType.Id = ID;
-            dynamicType.Name = name;
-            dynamicType.SqlTypeEnumCode = sqlTypeEnumCode;
-            return dynamicType;
+            MenuItem menuItem = new MenuItem();
+            menuItem.Id = ID;
+            return menuItem;
         }
         /// <summary>
         /// There are no comments for Property Id in the schema.
@@ -554,66 +525,146 @@ namespace Web
         partial void OnIdChanging(int value);
         partial void OnIdChanged();
         /// <summary>
-        /// There are no comments for Property Name in the schema.
+        /// There are no comments for Property DisplayName in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public string Name
+        public string DisplayName
         {
             get
             {
-                return this._Name;
+                return this._DisplayName;
             }
             set
             {
-                this.OnNameChanging(value);
-                this._Name = value;
-                this.OnNameChanged();
+                this.OnDisplayNameChanging(value);
+                this._DisplayName = value;
+                this.OnDisplayNameChanged();
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private string _Name;
-        partial void OnNameChanging(string value);
-        partial void OnNameChanged();
+        private string _DisplayName;
+        partial void OnDisplayNameChanging(string value);
+        partial void OnDisplayNameChanged();
         /// <summary>
-        /// There are no comments for Property SqlTypeEnumCode in the schema.
+        /// There are no comments for Property Route in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public int SqlTypeEnumCode
+        public string Route
         {
             get
             {
-                return this._SqlTypeEnumCode;
+                return this._Route;
             }
             set
             {
-                this.OnSqlTypeEnumCodeChanging(value);
-                this._SqlTypeEnumCode = value;
-                this.OnSqlTypeEnumCodeChanged();
+                this.OnRouteChanging(value);
+                this._Route = value;
+                this.OnRouteChanged();
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private int _SqlTypeEnumCode;
-        partial void OnSqlTypeEnumCodeChanging(int value);
-        partial void OnSqlTypeEnumCodeChanged();
+        private string _Route;
+        partial void OnRouteChanging(string value);
+        partial void OnRouteChanged();
         /// <summary>
-        /// There are no comments for DynamicTemplateAttributes in the schema.
+        /// There are no comments for Property IconName in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute> DynamicTemplateAttributes
+        public string IconName
         {
             get
             {
-                return this._DynamicTemplateAttributes;
+                return this._IconName;
+            }
+            set
+            {
+                this.OnIconNameChanging(value);
+                this._IconName = value;
+                this.OnIconNameChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _IconName;
+        partial void OnIconNameChanging(string value);
+        partial void OnIconNameChanged();
+        /// <summary>
+        /// There are no comments for Property OrderIndex in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<int> OrderIndex
+        {
+            get
+            {
+                return this._OrderIndex;
+            }
+            set
+            {
+                this.OnOrderIndexChanging(value);
+                this._OrderIndex = value;
+                this.OnOrderIndexChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<int> _OrderIndex;
+        partial void OnOrderIndexChanging(global::System.Nullable<int> value);
+        partial void OnOrderIndexChanged();
+        /// <summary>
+        /// There are no comments for Property ParentMenuItemId in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Nullable<int> ParentMenuItemId
+        {
+            get
+            {
+                return this._ParentMenuItemId;
+            }
+            set
+            {
+                this.OnParentMenuItemIdChanging(value);
+                this._ParentMenuItemId = value;
+                this.OnParentMenuItemIdChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private global::System.Nullable<int> _ParentMenuItemId;
+        partial void OnParentMenuItemIdChanging(global::System.Nullable<int> value);
+        partial void OnParentMenuItemIdChanged();
+        /// <summary>
+        /// There are no comments for MenuItems in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public global::System.Collections.ObjectModel.Collection<MenuItem> MenuItems
+        {
+            get
+            {
+                return this._MenuItems;
             }
             set
             {
                 if ((value != null))
                 {
-                    this._DynamicTemplateAttributes = value;
+                    this._MenuItems = value;
                 }
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute> _DynamicTemplateAttributes = new global::System.Collections.ObjectModel.Collection<DynamicTemplateAttribute>();
+        private global::System.Collections.ObjectModel.Collection<MenuItem> _MenuItems = new global::System.Collections.ObjectModel.Collection<MenuItem>();
+        /// <summary>
+        /// There are no comments for ParentMenuItem in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public MenuItem ParentMenuItem
+        {
+            get
+            {
+                return this._ParentMenuItem;
+            }
+            set
+            {
+                this._ParentMenuItem = value;
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private MenuItem _ParentMenuItem;
     }
 }

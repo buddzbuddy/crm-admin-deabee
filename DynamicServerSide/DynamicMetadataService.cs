@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DynamicServerSide.Models.Metadata;
+using System;
 using System.Collections.Generic;
 using System.Data.Services;
 using System.Data.Services.Common;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace DynamicServerSide
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public partial class DynamicMetadataService : EntityFrameworkDataService<DynamicEntities>
+    public partial class DynamicMetadataService : EntityFrameworkDataService<DynamicMetadataContext>
     {
         public static void InitializeService(DataServiceConfiguration config)
         {

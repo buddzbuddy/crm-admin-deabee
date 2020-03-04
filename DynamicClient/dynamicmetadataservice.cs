@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 // Original file name: dynamicmetadataservice.cs
-// Generation date: 1/5/2019 4:15:24 AM
+// Generation date: 1/5/2019 9:08:30 PM
 namespace DynamicClient
 {
     
@@ -229,13 +229,15 @@ namespace DynamicClient
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="name">Initial value of Name.</param>
         /// <param name="description">Initial value of Description.</param>
+        /// <param name="isExist">Initial value of IsExist.</param>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static DynamicTemplate CreateDynamicTemplate(int ID, string name, string description)
+        public static DynamicTemplate CreateDynamicTemplate(int ID, string name, string description, int isExist)
         {
             DynamicTemplate dynamicTemplate = new DynamicTemplate();
             dynamicTemplate.Id = ID;
             dynamicTemplate.Name = name;
             dynamicTemplate.Description = description;
+            dynamicTemplate.IsExist = isExist;
             return dynamicTemplate;
         }
         /// <summary>
@@ -301,6 +303,27 @@ namespace DynamicClient
         private string _Description;
         partial void OnDescriptionChanging(string value);
         partial void OnDescriptionChanged();
+        /// <summary>
+        /// There are no comments for Property IsExist in the schema.
+        /// </summary>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public int IsExist
+        {
+            get
+            {
+                return this._IsExist;
+            }
+            set
+            {
+                this.OnIsExistChanging(value);
+                this._IsExist = value;
+                this.OnIsExistChanged();
+            }
+        }
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private int _IsExist;
+        partial void OnIsExistChanging(int value);
+        partial void OnIsExistChanged();
         /// <summary>
         /// There are no comments for DynamicTemplateAttributes in the schema.
         /// </summary>

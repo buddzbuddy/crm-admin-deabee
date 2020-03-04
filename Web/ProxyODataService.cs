@@ -47,8 +47,12 @@ namespace Web
                 {
                     if(!Types.ContainsKey(dynamicTemplate.Name))
                     {
-                        var type = CreateType(dcf, dynamicTemplate.Name, dynamicTemplate.DynamicTemplateAttributes);
-                        Types.Add(type.Name, type);
+                        var cols = dynamicTemplate.DynamicFields.Where(x => x.SqlTypeEnumCode.HasValue).ToList();
+                        if(cols.Count > 0)
+                        {
+                            var type = CreateType(dcf, dynamicTemplate.Name, cols);
+                            Types.Add(type.Name, type);
+                        }
                     }
                 }
 
@@ -63,10 +67,17 @@ namespace Web
             var qr = mi.Invoke(this, new[] { name + "s" }) as DataServiceQuery; //assumes plural
             return qr;
         }
-
-        private static Type CreateType(DynamicClassFactory dcf, string name, ICollection<DynamicTemplateAttribute> dynamicAttributes)
+        private Dictionary<int, Type> ColumnTypeByCode = new Dictionary<int, Type>
         {
-            var props = dynamicAttributes.ToDictionary(da => da.DynamicAttribute.Name, da => typeof(string));
+            {10, typeof(int) },
+            {3, typeof(bool) },
+            {6, typeof(DateTime) },
+            {7, typeof(decimal) },
+            {15, typeof(string) }
+        };
+        private Type CreateType(DynamicClassFactory dcf, string name, ICollection<DynamicField> dynamicAttributes)
+        {
+            var props = dynamicAttributes.ToDictionary(da => da.Name, da => ColumnTypeByCode[da.SqlTypeEnumCode.Value]);
             var type = dcf.CreateDynamicType<BaseDynamicEntity>(name, props);
             return type;
         }
